@@ -4,46 +4,82 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.util.Log;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    //private Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0;
+    Button btn[] = new Button[11];
+    EditText edittext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btn1 = (Button)findViewById(R.id.btn1);
-        Button btn2 = (Button)findViewById(R.id.btn2);
-        Button btn3 = (Button)findViewById(R.id.btn3);
-        Button btn4 = (Button)findViewById(R.id.btn4);
-        Button btn5 = (Button)findViewById(R.id.btn5);
-        Button btn6 = (Button)findViewById(R.id.btn6);
-        Button btn7 = (Button)findViewById(R.id.btn7);
-        Button btn8 = (Button)findViewById(R.id.btn8);
-        Button btn9 = (Button)findViewById(R.id.btn9);
-        Button btn0 = (Button)findViewById(R.id.btn0);
-        Button btnclear = (Button)findViewById(R.id.btnclear);
+        btn[0] = (Button)findViewById(R.id.btn1);
+        btn[1] = (Button)findViewById(R.id.btn2);
+        btn[2] = (Button)findViewById(R.id.btn3);
+        btn[3] = (Button)findViewById(R.id.btn4);
+        btn[4] = (Button)findViewById(R.id.btn5);
+        btn[5] = (Button)findViewById(R.id.btn6);
+        btn[6] = (Button)findViewById(R.id.btn7);
+        btn[7] = (Button)findViewById(R.id.btn8);
+        btn[8] = (Button)findViewById(R.id.btn9);
+        btn[9] = (Button)findViewById(R.id.btn0);
+        btn[10] = (Button)findViewById(R.id.btnclear);
 
-        btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
-        btn3.setOnClickListener(this);
-        btn4.setOnClickListener(this);
-        btn5.setOnClickListener(this);
-        btn6.setOnClickListener(this);
-        btn7.setOnClickListener(this);
-        btn8.setOnClickListener(this);
-        btn9.setOnClickListener(this);
-        btn0.setOnClickListener(this);
-        btnclear.setOnClickListener(this);
+       for(int i = 0; i < 11; i++){
+           btn[i].setOnClickListener(this);
+       }
 
     }
 
     @Override
-    public void onClick(View view){
+    public void onClick(View v){
+        switch(v.getId()){
+            case R.id.btn1:
+                addtoarray("1");
+                break;
+            case R.id.btn2:
+                addtoarray("2");
+                break;
+            case R.id.btn3:
+                addtoarray("3");
+                break;
+            case R.id.btn4:
+                addtoarray("4");
+                break;
+            case R.id.btn5:
+                addtoarray("5");
+                break;
+            case R.id.btn6:
+                addtoarray("6");
+                break;
+            case R.id.btn7:
+                addtoarray("7");
+                break;
+            case R.id.btn8:
+                addtoarray("8");
+                break;
+            case R.id.btn9:
+                addtoarray("9");
+                break;
+            case R.id.btn0:
+                addtoarray("0");
+                break;
+            case R.id.btnclear:
+                edittext = (EditText)findViewById(R.id.edittext);
+                edittext.setText("");
+                break;
+        }
+    }
 
+    public void addtoarray(String nums){
+        edittext = (EditText)findViewById(R.id.edittext);
+        edittext.append(nums);
     }
 
     /**@Override
